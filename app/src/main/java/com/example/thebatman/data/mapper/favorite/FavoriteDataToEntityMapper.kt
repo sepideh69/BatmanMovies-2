@@ -6,7 +6,7 @@ import com.example.thebatman.domain.common.Mapper
 import com.example.thebatman.domain.entities.MovieEntity
 import javax.inject.Inject
 
-class FavoriteDataEntityMapper @Inject constructor() : Mapper<FavoriteData, MovieEntity>() {
+class FavoriteDataToEntityMapper @Inject constructor() : Mapper<FavoriteData, MovieEntity>() {
 
 
     override fun mapFrom(from: FavoriteData): MovieEntity {

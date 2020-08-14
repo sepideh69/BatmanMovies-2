@@ -56,10 +56,12 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_favorite_border"
                         android:id="@+id/img_favorit"
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/movie_detail_title"
                         android:layout_margin="12dp"
+                        app:setFavoriteState="@{viewmodel.favoriteState}"
                         />
 
                     <TextView

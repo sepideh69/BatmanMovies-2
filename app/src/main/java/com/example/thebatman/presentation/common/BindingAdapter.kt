@@ -68,6 +68,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 fun bindFavoriteState(imageView: ImageView , check : Boolean ?){
 
     check?.let {
+        imageView.visibility=View.VISIBLE
         when(it){
             true->imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context,R.drawable.ic_filled_favorite))
             false->imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context,R.drawable.ic_favorite_border))

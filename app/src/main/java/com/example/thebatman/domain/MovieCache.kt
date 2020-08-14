@@ -4,7 +4,7 @@ import com.example.thebatman.domain.entities.MovieEntity
 import com.example.thebatman.domain.entities.Container
 import io.reactivex.Observable
 
-interface MoviesCache {
+interface MovieCache {
 
     fun clear()
     fun save(movieEntity: MovieEntity)

@@ -54,7 +54,7 @@ class DetailFragment : DaggerFragment() {
 
         binding.imgFavorit.setOnClickListener {
 
-           // detailViewModel.favoriteButtonClicked()
+            detailViewModel.onFavoriteButtonClicked()
         }
     }
 

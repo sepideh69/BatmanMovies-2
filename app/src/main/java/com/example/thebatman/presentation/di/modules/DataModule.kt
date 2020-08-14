@@ -4,28 +4,45 @@ import com.example.thebatman.data.CacheMovieDataStore
 import com.example.thebatman.data.MovieRepositoryImp
 import com.example.thebatman.data.RemoteMovieDataStore
 import com.example.thebatman.data.api.Api
+import com.example.thebatman.data.db.favorites.FavoriteDao
+import com.example.thebatman.data.db.favorites.RoomFavoriteCache
 import com.example.thebatman.data.db.movies.MovieDao
 import com.example.thebatman.data.db.movies.RoomMovieCache
+import com.example.thebatman.data.mapper.favorite.FavoriteDataToEntityMapper
+import com.example.thebatman.data.mapper.favorite.MovieEntityToFavoriteDataMapper
 import com.example.thebatman.data.mapper.movie.DetailDataToEntityMapper
 import com.example.thebatman.data.mapper.movie.MovieDataEntityMapper
 import com.example.thebatman.data.mapper.movie.MovieEntityDataMapper
 import com.example.thebatman.domain.MovieRepository
-import com.example.thebatman.domain.MoviesCache
+import com.example.thebatman.domain.MovieCache
+import com.example.thebatman.utils.Constants
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 class DataModule {
 
+    @Singleton
+    @Provides
+    @Named(Constants.favoritesCache)
+    fun provideFavoriteMovieCache(
+        dao: FavoriteDao,
+        movieEntityToFavoriteDataMapper: MovieEntityToFavoriteDataMapper,
+        favoriteDataToEntityMapper: FavoriteDataToEntityMapper
+    ): MovieCache {
+        return RoomFavoriteCache(dao, movieEntityToFavoriteDataMapper, favoriteDataToEntityMapper)
+    }
 
     @Singleton
     @Provides
+    @Named(Constants.movieListCache)
     fun provideMovieCache(
         dao: MovieDao,
         entityDataMapper: MovieEntityDataMapper,
         dataEntityMapper: MovieDataEntityMapper
-    ): MoviesCache {
+    ): MovieCache {
         return RoomMovieCache(
             dao,
             entityDataMapper,
@@ -35,7 +52,7 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideCachedMoviesDataStore(moviesCache: MoviesCache): CacheMovieDataStore {
+    fun provideCachedMoviesDataStore(@Named(Constants.movieListCache) moviesCache: MovieCache): CacheMovieDataStore {
         return CacheMovieDataStore(moviesCache)
     }
 

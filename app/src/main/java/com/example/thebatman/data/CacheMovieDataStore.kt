@@ -1,11 +1,11 @@
 package com.example.thebatman.data
 
 import com.example.thebatman.domain.MovieRepository
-import com.example.thebatman.domain.MoviesCache
+import com.example.thebatman.domain.MovieCache
 import com.example.thebatman.domain.entities.MovieEntity
 import io.reactivex.Observable
 
-class CacheMovieDataStore (val moviesCache: MoviesCache) :MovieRepository {
+class CacheMovieDataStore (val moviesCache: MovieCache) :MovieRepository {
     override fun getMovies(): Observable<List<MovieEntity>> {
         return moviesCache.getAll()
     }
