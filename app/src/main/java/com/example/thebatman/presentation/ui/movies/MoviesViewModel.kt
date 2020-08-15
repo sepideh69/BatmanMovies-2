@@ -37,7 +37,8 @@ class MoviesViewModel @Inject constructor(
 
 
     private fun onFailure(t: Throwable) {
-        Log.d("ert","onFailure  ${t.message}")
+
+        Log.d("dfd","onFailure viewmodel  ${t.message}")
         movieResult.value= Result.error(t.message.toString())
     }
 

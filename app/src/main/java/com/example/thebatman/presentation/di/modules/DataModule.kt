@@ -1,5 +1,6 @@
 package com.example.thebatman.presentation.di.modules
 
+import androidx.lifecycle.ViewModel
 import com.example.thebatman.data.CacheMovieDataStore
 import com.example.thebatman.data.MovieRepositoryImp
 import com.example.thebatman.data.RemoteMovieDataStore
@@ -15,14 +16,28 @@ import com.example.thebatman.data.mapper.movie.MovieDataEntityMapper
 import com.example.thebatman.data.mapper.movie.MovieEntityDataMapper
 import com.example.thebatman.domain.MovieRepository
 import com.example.thebatman.domain.MovieCache
+import com.example.thebatman.presentation.di.key.ViewModelKey
+import com.example.thebatman.presentation.ui.main.MainViewModel
 import com.example.thebatman.utils.Constants
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.multibindings.IntoMap
 import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 class DataModule {
+
+
+    @Singleton
+    @Provides
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+     fun bindMainViewModel(): ViewModel {
+        return MainViewModel()
+
+    }
 
     @Singleton
     @Provides

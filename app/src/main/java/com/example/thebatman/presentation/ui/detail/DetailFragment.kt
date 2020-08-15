@@ -10,16 +10,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.thebatman.R
 import com.example.thebatman.databinding.FragmentDetailBinding
+import com.example.thebatman.presentation.common.BaseFragment
 import com.example.thebatman.presentation.common.ViewModelFactory
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class DetailFragment : DaggerFragment() {
+class DetailFragment : BaseFragment() {
 
     @Inject
     lateinit var factory: DetailVMFactory
     lateinit var detailViewModel: DetailViewModel
     lateinit var binding: FragmentDetailBinding
+
 
     lateinit var imdbId: String
 
@@ -35,6 +37,7 @@ class DetailFragment : DaggerFragment() {
 
     private fun bind(inflater: LayoutInflater) {
 
+        mainViewModel.setToolbarTitle("Details of Movie")
         binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner=this
 

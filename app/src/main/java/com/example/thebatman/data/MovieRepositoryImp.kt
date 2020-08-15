@@ -17,6 +17,8 @@ class MovieRepositoryImp(
                 Log.d("eee","empty")
                 return@flatMap remoteMovieDataStore.getMovies().doOnNext {
                     cacheMovieDataStore.saveAll(it)
+                }.doOnError {
+                    Log.d("dfd","getMoviesimp: $it")
                 }
             }else{
                 Log.d("eee","not empty")

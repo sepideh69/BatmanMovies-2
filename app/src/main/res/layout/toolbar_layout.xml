@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.example.thebatman.presentation.ui.main.MainViewModel" />
     </data>
 
     <RelativeLayout
@@ -20,29 +23,16 @@
             android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
             >
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Batman Movies"
-                    android:textColor="@color/white"
-                    android:layout_centerInParent="true"
-                    android:id="@+id/txv_toolbar_title"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_arrow_back"
-                    android:tint="@color/white"
-                    android:id="@+id/back_btn"
-                    android:layout_alignParentStart="true"
-                    tools:ignore="VectorDrawableCompat" />
-            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:id="@+id/txv_toolbar_title"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@{viewModel.toolbarTitle}"/>
         </androidx.appcompat.widget.Toolbar>
     </RelativeLayout>
+
 </layout>

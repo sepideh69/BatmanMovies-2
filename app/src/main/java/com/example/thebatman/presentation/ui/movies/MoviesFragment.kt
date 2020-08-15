@@ -12,13 +12,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thebatman.R
 import com.example.thebatman.databinding.FragmentMoviesBinding
+import com.example.thebatman.presentation.common.BaseFragment
 import com.example.thebatman.presentation.common.ViewModelFactory
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_movies.*
 import javax.inject.Inject
 
 
-class MoviesFragment : DaggerFragment() {
+class MoviesFragment : BaseFragment() {
 
     @Inject
     lateinit var factory:ViewModelFactory
@@ -42,6 +43,7 @@ class MoviesFragment : DaggerFragment() {
 
     fun bind(inflater: LayoutInflater){
 
+        mainViewModel.setToolbarTitle("Batman Movies")
         binding= FragmentMoviesBinding.inflate(inflater)
         binding.lifecycleOwner=this
 

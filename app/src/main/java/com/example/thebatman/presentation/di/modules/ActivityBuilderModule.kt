@@ -1,6 +1,6 @@
 package com.example.thebatman.presentation.di.modules
 
-import com.example.thebatman.MainActivity
+import com.example.thebatman.presentation.ui.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,5 +9,5 @@ abstract class ActivityBuilderModule {
 
 
     @ContributesAndroidInjector
-    abstract fun contributeMainActivity():MainActivity
+    abstract fun contributeMainActivity(): MainActivity
 }
