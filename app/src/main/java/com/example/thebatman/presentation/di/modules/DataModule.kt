@@ -67,8 +67,8 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideCachedMoviesDataStore(@Named(Constants.movieListCache) moviesCache: MovieCache): CacheMovieDataStore {
-        return CacheMovieDataStore(moviesCache)
+    fun provideCachedMoviesDataStore(@Named(Constants.movieListCache) movieCache: MovieCache): CacheMovieDataStore {
+        return CacheMovieDataStore(movieCache)
     }
 
     @Singleton

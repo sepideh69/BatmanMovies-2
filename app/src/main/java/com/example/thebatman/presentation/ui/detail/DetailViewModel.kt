@@ -16,7 +16,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
-class DetailViewModel @Inject constructor(
+class DetailViewModel (
     val movieId: String,
     compositeDisposable: CompositeDisposable,
     val getMovieDetailUseCase: GetDetailUseCase,

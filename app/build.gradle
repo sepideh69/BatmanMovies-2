@@ -45,6 +45,12 @@ android {
     androidExtensions {
         experimental = true
     }
+
+    kapt {
+        javacOptions {
+            option("-Xmaxerrs", 500)
+        }
+    }
 }
 
 dependencies {
